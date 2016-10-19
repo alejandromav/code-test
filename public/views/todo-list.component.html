@@ -1,0 +1,29 @@
+<div class="todo-list">
+    <h3>Todos</h3>
+    <div class="spinner" *ngIf="loading"></div>
+    
+    <div class="todos" *ngIf="!loading">
+        <p class="empty" *ngIf="!todos || !todos.length">
+            No pending todos, add one
+            <span class="lnr-chevron-right"></span>
+        </p>    
+        <article class="todo animated zoomIn" *ngFor="let todo of todos" [class.selected]="todo === selectedTodo" [class.done]="todo.done" (click)="onSelect(todo)">
+            <header (click)="onSelect(todo); $event.stopPropagation()">
+                {{todo.title | uppercase | slice:0:12}}{{todo.title.length >= 12 ? '...' : ''}}
+                <span class="lnr-arrow-right"></span>
+            </header>
+            <div class="body">
+                <p class="due"><b>Due:</b> {{todo.due | amTimeAgo}}</p>
+                <p>{{todo.description}}</p>
+            </div>
+            <footer>
+                <!--<button class="edit"   (click)="edit(todo); $event.stopPropagation()">EDIT</button>-->
+                <button *ngIf="!todo.done" class="done" (click)="done(todo, true); $event.stopPropagation()">DONE</button>      
+                <button *ngIf="todo.done" class="undone" (click)="done(todo, false); $event.stopPropagation()">UNDONE</button>      
+                <button class="delete" (click)="delete(todo); $event.stopPropagation()">DELETE</button>        
+            </footer>
+        </article>
+    </div>
+
+
+</div><todo-details class="todo-details" [todos]="todos" [selectedTodo]="selectedTodo"></todo-details>

@@ -1,0 +1,61 @@
+<div class="todo-details">
+    <h3 *ngIf="!selectedTodo">Add new todo</h3>
+    <h3 *ngIf="selectedTodo && frame === 'edit'">Edit todo</h3>
+    <h3 *ngIf="selectedTodo && !frame" onsubmit="null">Todo details</h3>
+
+    <p class="empty" *ngIf="!selectedTodo && !frame" (click)="setFrame('add')">
+        Add new todo
+        <span class="lnr-reminder"></span>
+    </p>    
+
+    <div class="spinner" *ngIf="loading"></div>
+    
+    <div class="forms" *ngIf="!loading">
+        <!-- edit existing -->
+        <form id="edit" class="animated slideInRight" *ngIf="selectedTodo && frame === 'edit'" onsubmit="null">
+            <span class="close lnr-cross" (click)="closeFrame()"></span>
+            <label>Title</label>
+            <input type="text" placeholder="Morning todos" name="title" [(ngModel)]="selectedTodo.title">
+            <label>Description</label>
+            <textarea type="text" rows="4" placeholder="Wash dishes" name="description" [(ngModel)]="selectedTodo.description"></textarea>
+            <label>Due date</label>
+            <input type="date" name="due" [(ngModel)]="selectedTodo.dueStr">
+            <p class="error" *ngIf="formError">{{formError}}</p>
+            <footer>
+                <button type='button' class="save"   (click)="save(); $event.stopPropagation()">SAVE</button>
+                <button type='button' class="done"   (click)="done(); $event.stopPropagation()">DONE</button>      
+            </footer>
+        </form>
+
+        <!-- add new -->
+        <form id="add" class="animated slideInRight" *ngIf="!selectedTodo && frame === 'add'" onsubmit="null">
+            <span class="close lnr-cross" (click)="closeFrame()"></span>
+            <label>Title</label>
+            <input type="text" placeholder="Morning todos" name="title" [(ngModel)]="newTodo.title">
+            <label>Description</label>
+            <textarea type="text" rows="4" placeholder="Wash dishes" name="description" [(ngModel)]="newTodo.description"></textarea>
+            <label>Due date</label>
+            <input type="date" name="due" [(ngModel)]="newTodo.dueStr">
+            <p class="error" *ngIf="formError">{{formError}}</p>
+            <footer>
+                <button type='button' class="save" (click)="add(); $event.stopPropagation()">SAVE</button>      
+            </footer>
+        </form>
+
+        <!-- details -->
+        <form id="details" class="animated slideInRight" *ngIf="selectedTodo && !frame" onsubmit="null">
+            <span class="close lnr-cross" (click)="closeFrame()"></span>
+            <label>Title</label>
+            <p>{{selectedTodo.title}}</p>
+            <label>Description</label>
+            <p>{{selectedTodo.description}}</p>
+            <label>Due date</label>
+            <p>{{selectedTodo.due | amTimeAgo}}</p>
+            <footer>
+                <button type='button' class="undone" *ngIf="selectedTodo.done" (click)="done(false); $event.stopPropagation()">UNDONE</button>
+                <button type='button' class="done" *ngIf="!selectedTodo.done" (click)="done(true); $event.stopPropagation()">DONE</button>
+                <button type='button' class="edit" *ngIf="!selectedTodo.done" (click)="setFrame('edit'); $event.stopPropagation()">EDIT</button>   
+            </footer>
+        </form>
+    </div>
+</div>

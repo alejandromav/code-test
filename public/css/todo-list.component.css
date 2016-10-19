@@ -1,0 +1,137 @@
+.todo-list,
+.todo-details {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    height: 90%;
+}
+
+.todo-details {
+    padding: 0px 0px 0px 60px;
+    box-sizing: border-box;
+}
+
+h3 {
+    padding: 0 10px;
+    font-size: 25px;
+    color: #646464;
+}
+
+.todos {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.todo {
+    display: inline-block;
+    width: 280px;
+    height: 250px;
+    background: #fff;
+    margin: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    vertical-align: top;
+}
+
+.todo header {
+    height: 20%;
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    font-weight: bold;
+    /* vertical-align: baseline; */
+    font-size: 20px;
+    line-height: 25px;
+    color: #848484;
+    cursor: pointer;
+}
+
+.todo .body {
+    height: calc(80% - 55px);
+    padding: 15px;
+    box-sizing: border-box;
+    color: #646464;
+    font-size: 19px;
+}
+
+.todo header:hover{
+    background: #efefef;
+}
+
+
+.todo .body p.due {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.todo footer {
+    height: 55px;
+    widows: 100%;
+    padding: 10px 15px 15px 15px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.todo footer button {
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    background: #ccc;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    font-weight: bold;
+    min-width: 70px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.todo footer button:hover{
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.34);
+}
+
+.todo footer button.edit {
+    background: #3498db;
+}
+.todo footer button.delete {
+    background: #e74c3c;
+}
+.todo footer button.done {
+    background: #27ae60;
+}
+.todo footer button.undone {
+    background: #e67e22;
+}
+
+.empty{
+    text-align: center;
+    font-size: 25px;
+    color: #aaa;
+    padding: 40px 0;
+}
+.empty span {
+    top: 2px;
+    position: relative;
+    margin-left: 5px;
+    font-size: 22px;
+}
+
+
+.todo.done header ,
+.todo.done p {
+    color: #aaa !important;
+    text-decoration: line-through;
+}
+
+
+.todo header span {
+    float: right;
+}
+
+form p.error {
+    color: #e74c3c;
+    margin: 5px 0px;
+}

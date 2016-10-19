@@ -1,0 +1,116 @@
+h3 {
+    padding: 0 10px;
+    font-size: 25px;
+    color: #646464;
+}
+
+form {
+    width: 100%;
+    max-width: 380px;
+    background: #fff;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 20px 15px;
+    box-sizing: border-box;
+}
+
+form input,
+form textarea {
+    font-family: 'Avenir Next LT Pro Regular';
+    display: block;
+    margin: 5px auto 25px auto;
+    width: 90%;
+    height: 20px;
+    padding: 4px 7px;
+    border: 1px solid #ccc;
+    outline: none !important;
+    font-size: 16px;
+    color: #646464;
+    line-height: 22px;
+}
+
+form textarea {
+    height: auto;
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #848484;
+}
+
+footer {
+    bottom: 0;
+    height: 40px;
+    widows: 100%;
+    padding: 10px 15px 0px 15px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+footer button {
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    background: #ccc;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    font-weight: bold;
+    min-width: 70px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+footer button:hover {
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.34);
+}
+
+footer button.save,
+footer button.edit {
+    background: #3498db;
+}
+
+footer button.delete {
+    background: #e74c3c;
+}
+
+footer button.done {
+    background: #27ae60;
+}
+
+footer button.undone {
+    background: #e67e22;
+}
+
+span.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #848484;
+}
+
+.empty {
+    text-align: center;
+    font-size: 25px;
+    color: #848484;
+    padding: 40px 0;
+    cursor: pointer;
+}
+
+.empty span {
+    top: 2px;
+    position: relative;
+    margin-left: 5px;
+    font-size: 22px;
+}
+
+form p.error {
+    color: #e74c3c;
+    margin: 5px 0px;
+}
